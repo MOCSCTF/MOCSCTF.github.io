@@ -36,11 +36,184 @@
             }
         }
         
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--cyber-neon);
+        }
+
         .navbar .container {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-right: 0.5rem;
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+
+        .current-page {
+            display: none;
+            color: var(--cyber-text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
             gap: 2rem;
+            align-items: center;
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            color: var(--cyber-text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+
+        .nav-link:hover {
+            color: var(--cyber-neon);
+            text-shadow: 0 0 10px var(--cyber-neon);
+        }
+
+        .nav-link.active {
+            color: var(--cyber-neon);
+            border: 1px solid var(--cyber-neon);
+            box-shadow: 0 0 10px rgba(0, 255, 140, 0.2);
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+            margin-left: auto;
+            padding: 0;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--cyber-neon);
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Mobile Navigation Styles */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 0;
+            }
+
+            .navbar .container {
+                justify-content: flex-start;
+            }
+
+            .current-page {
+                display: inline-block;
+                font-size: 1.1rem;
+            }
+
+            .hamburger {
+                display: flex;
+                margin-left: auto;
+                width: 32px;
+                height: 24px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: -100vh;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                padding: 4rem 1rem 2rem 1rem;
+                margin-left: 0;
+            }
+
+            .nav-links.active {
+                top: 0;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+                border: 1px solid var(--cyber-neon);
+                margin: 0.25rem 0;
+            }
+
+            .nav-link:hover {
+                background: rgba(0, 255, 140, 0.1);
+                transform: translateY(2px);
+            }
+
+            .nav-link.active {
+                background: rgba(0, 255, 140, 0.2);
+                transform: translateY(0);
+            }
+
+            /* Hamburger Animation */
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+
+        /* Adjust main content to account for fixed navbar */
+        .content {
+            padding-top: 160px;
+            margin-top: 20px;
+            margin-bottom: 60px;
         }
 
         .about-content {
@@ -171,7 +344,13 @@
         <div class="container">
             <a href="index.html" class="navbar-brand">
                 <img src="static/images/moctf-logo.png" alt="MOCSCTF Logo">
+                <span class="current-page">關於我們</span>
             </a>
+            <button class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">首頁</a>
                 <a href="events.html" class="nav-link">活動</a>
@@ -222,7 +401,7 @@
 
                     <div class="team-member">
                         <h4>Wendy Lam</h4>
-                        <p>創會成員 | 網絡安全愛好者  | CTFer | 安全研究員 | 博主 <a href="https://bluebear.info" target="_blank" style="color: var(--cyber-neon);">bluebear.info</a> | "鵬城—澳門聯合靶場網安競賽"2022 冠軍 | "2022澳門網絡安全技術大賽" 公開組銀獎</p>
+                        <p>創會成員 | 網絡安全愛好者  | CTFer | 安全研究員 | 博主 <a href="https://bluebear.info" target="_blank" style="color: var(--cyber-neon);">bluebear.info</a> | "2022鵬城—澳門聯合靶場網安競賽" 冠軍 | "2022澳門網絡安全技術大賽" 公開組銀獎</p>
                     </div>
                     <div class="team-member">
                         <h4>Simon Leung</h4>
@@ -276,6 +455,34 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        // Mobile Navigation
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Modal functionality
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
@@ -286,14 +493,6 @@
 
         function closeModal() {
             document.getElementById('imageModal').style.display = "none";
-        }
-
-        // Close modal when clicking outside the image
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target == modal) {
-                closeModal();
-            }
         }
     </script>
 </body>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入我們 - MOCSCTF</title>
+    <link rel="icon" type="image/png" href="static/images/moctf-logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-right: 1rem;
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+        
+        .navbar-brand:hover img {
+            filter: drop-shadow(0 0 15px var(--cyber-neon)) brightness(1.2);
+            transform: scale(1.1) rotate(-5deg);
+            animation: logoGlow 2s infinite;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 5px var(--cyber-neon)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 15px var(--cyber-neon)) brightness(1.3);
+                transform: scale(1.15) rotate(-8deg);
+            }
+            100% {
+                filter: drop-shadow(0 0 5px var(--cyber-neon)) brightness(1);
+            }
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .join-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .join-content h2 {
+            color: var(--cyber-neon);
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 10px var(--cyber-neon);
+        }
+
+        .join-content h3 {
+            color: var(--cyber-blue);
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--cyber-neon);
+            padding-bottom: 0.5rem;
+        }
+
+        .join-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .join-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .join-content li:before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--cyber-neon);
+        }
+
+        .join-content p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .application-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .application-image {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            border: 1px solid var(--cyber-neon);
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 255, 140, 0.2);
+        }
+
+        .download-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(0, 255, 140, 0.1);
+            border: 2px solid var(--cyber-neon);
+            color: var(--cyber-neon);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .download-button:hover {
+            background: rgba(0, 255, 140, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 140, 0.4);
+            transform: translateY(-2px);
+            color: var(--cyber-text);
+        }
+
+        .download-button i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="static/images/moctf-logo.png" alt="MOCSCTF Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="events.html" class="nav-link">活動</a>
+                <a href="mocsctfevents.html" class="nav-link">MOCSCTF系列活動</a>
+                <a href="about.html" class="nav-link">關於我們</a>
+                <a href="joinus.html" class="nav-link active">加入我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content container">
+        <div class="title-container text-center">
+            <h1 class="main-title">加入我們</h1>
+        </div>
+
+        <div class="cyber-card">
+            <div class="join-content">
+                <h2>加入我們，成為網絡安全守護者！</h2>
+                
+                <p>你是否對網絡安全充滿熱情？是否渴望在CTF（奪旗競賽）中一展身手？澳門網絡安全暨奪旗競賽協會現正招募新成員！無論你是初學者還是資深高手，只要對網絡安全有興趣，我們都歡迎你的加入！</p>
+
+                <h3>為什麼加入我們？</h3>
+                <ul>
+                    <li>專業培訓：定期舉辦工作坊、培訓課程，提升你的網絡安全技能。</li>
+                    <li>競賽機會：參與本地及國際CTF賽事，與頂尖高手同台競技。</li>
+                    <li>資源共享：獲取最新的網絡安全資訊、工具及技術支持。</li>
+                    <li>社區交流：與志同道合的夥伴交流心得，拓展人脈網絡。</li>
+                </ul>
+
+                <h3>如何加入？</h3>
+                <p>我地既網絡安全暨奪旗競賽協會申請表已經準備好啦。你仲猶豫緊啲咩？快啲填寫下方申請表加入我地啦！</p>
+
+                <div class="application-section">
+                    <a href="https://forms.gle/tHvRt88tAZgdvobs5" class="download-button" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>網絡安全暨奪旗競賽協會申請表
+                    </a>
+                    <p class="mt-4">如有查詢請電郵至 <a href="mailto:info@mocsctf.com" style="color: var(--cyber-neon);">info@mocsctf.com</a>, 感謝!</p>
+                </div>
+
+                <p class="text-center">一起守護網絡安全，挑戰極限，成為未來的網絡安全專家！<br>澳門網絡安全暨奪旗競賽協會期待你的加入！</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/MOCSCTF" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://ctftime.org/team/120747" target="_blank" class="social-link">
+                    <i class="fas fa-flag"></i>
+                    <span>CTFTime</span>
+                </a>
+                <a href="https://www.facebook.com/MOCSCTF" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <p class="text-center mt-3">&copy; <span id="currentYear"></span> MOCSCTF. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="static/js/matrix.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 - MOCSCTF</title>
+    <link rel="icon" type="image/png" href="static/images/moctf-logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-right: 1rem;
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+        
+        .navbar-brand:hover img {
+            filter: drop-shadow(0 0 15px var(--cyber-neon)) brightness(1.2);
+            transform: scale(1.1) rotate(-5deg);
+            animation: logoGlow 2s infinite;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 5px var(--cyber-neon)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 15px var(--cyber-neon)) brightness(1.3);
+                transform: scale(1.15) rotate(-8deg);
+            }
+            100% {
+                filter: drop-shadow(0 0 5px var(--cyber-neon)) brightness(1);
+            }
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-content h2 {
+            color: var(--cyber-neon);
+            margin-bottom: 2rem;
+            text-align: center;
+            text-shadow: 0 0 10px var(--cyber-neon);
+        }
+        
+        .about-content h3 {
+            color: var(--cyber-blue);
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--cyber-neon);
+            padding-bottom: 0.5rem;
+        }
+        
+        .about-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .about-content li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .about-content li:before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--cyber-neon);
+        }
+        
+        .about-content p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-member {
+            border: 1px solid var(--cyber-neon);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(0, 255, 140, 0.05);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            background: rgba(0, 255, 140, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 255, 140, 0.2);
+        }
+
+        .team-member h4 {
+            color: var(--cyber-neon);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            margin-bottom: 0;
+        }
+
+        /* Organization Chart Styles */
+        .org-chart-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .org-chart-image {
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid var(--cyber-neon);
+            border-radius: 4px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .org-chart-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 255, 140, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: auto;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            margin-top: 2%;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: var(--cyber-neon);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="static/images/moctf-logo.png" alt="MOCSCTF Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="events.html" class="nav-link">活動</a>
+                <a href="mocsctfevents.html" class="nav-link">MOCSCTF系列活動</a>
+                <a href="about.html" class="nav-link active">關於我們</a>
+                <a href="joinus.html" class="nav-link">加入我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content container">
+        <div class="title-container text-center">
+            <h1 class="main-title">關於我們</h1>
+        </div>
+
+        <div class="cyber-card">
+            <div class="about-content">
+                <p>我們是來自澳門的CTF團隊- MOCCSTF，本社團成立於2020年，致力於在澳門自辦年度MOCSCTF菜鳥黑客松比賽，並提供CTF賽前培訓，帶領澳門CTF團隊由本地賽走向國際賽。</p>
+
+                <h3>澳門網絡安全暨奪旗競賽協會的職責</h3>
+                <ul>
+                    <li>推動澳門的網絡安全發展及技術研討，相關專業人士的技術交流，及其他有興趣人士等參與本會活動</li>
+                    <li>推廣網絡奪旗賽知識及活動</li>
+                    <li>探討研究網絡安全技術，培養本地技術人才</li>
+                </ul>
+
+                <h3>組織架構</h3>
+                <div class="org-chart-container">
+                    <img src="static/images/MOCSCTFOrgChart.png" alt="MOCSCTF組織架構" class="org-chart-image" onclick="openModal(this.src)">
+                </div>
+
+                <h3>內閣成員</h3>
+                <div class="team-members">
+                    <div class="team-member">
+                        <h4>Kit Wu</h4>
+                        <p>創會成員 | Ec-Conclie 認證導師 | MOCSCTF 培訓導師 | CTFer | "2022鵬城—澳門聯合靶場網安競賽" 冠軍 | "2022澳門網絡安全技術大賽" 公開組銀獎</p>
+                    </div>
+
+                    <div class="team-member">
+                        <h4>Teru Lei</h4>
+                        <p>創會成員 | CISSP | OSCE | OSCP | CISA</p>
+                    </div>
+
+                    <div class="team-member">
+                        <h4>Roland Wong</h4>
+                        <p>創會成員 | 政策研究組 | CISP | CISM </p>
+                    </div>
+
+                    <div class="team-member">
+                        <h4>Wendy Lam</h4>
+                        <p>創會成員 | 網絡安全愛好者  | CTFer | 安全研究員 | 博主 <a href="https://bluebear.info" target="_blank" style="color: var(--cyber-neon);">bluebear.info</a> | "鵬城—澳門聯合靶場網安競賽"2022 冠軍 | "2022澳門網絡安全技術大賽" 公開組銀獎</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Simon Leung</h4>
+                        <p>網絡安全學術研究組 | CISA | CISP | OSCP | OSWP | CBPM | Alicloud Security</p>
+                    </div>
+                    <div class="team-member">
+                        <h4>Ivan Mak</h4>
+                        <p>網絡安全學術研究組 | 活動策劃事務組 | CTFer </p>
+                    </div>
+
+                    <div class="team-member">
+                        <h4>Harry Sit</h4>
+                        <p>MOCSCTF 培訓導師 | 網絡安全學術研究組 | M.S. Cybersecurity @ NYU | OSCP | CRTP | CRTE | eCPPTv2 | CCNP Security | ACP Security | WorldSkills Lyon 2024 - Champion - Cyber Security | CTFer </p>
+                    </div>
+
+                    <div class="team-member">
+                        <h4>Cindy Wong</h4>
+                        <p>MOCSCTF 培訓導師 | 網絡安全學術研究組 | M.S. Cybersecurity @ NYU | OSCP | CRTP | CRTE | eCPPTv2 | CCNP Security | ACP Security | WorldSkills Lyon 2024 - Champion - Cyber Security | CTFer </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/MOCSCTF" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://ctftime.org/team/120747" target="_blank" class="social-link">
+                    <i class="fas fa-flag"></i>
+                    <span>CTFTime</span>
+                </a>
+                <a href="https://www.facebook.com/MOCSCTF" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <p class="text-center mt-3">&copy; <span id="currentYear"></span> MOCSCTF. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="static/js/matrix.js"></script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Modal functionality
+        function openModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

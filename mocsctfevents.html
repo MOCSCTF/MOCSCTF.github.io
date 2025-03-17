@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCSCTF系列活動</title>
+    <link rel="icon" type="image/png" href="static/images/moctf-logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+            margin-right: 1rem;
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+        
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .navbar-brand:hover img {
+            filter: drop-shadow(0 0 15px var(--cyber-neon)) brightness(1.2);
+            transform: scale(1.1) rotate(-5deg);
+            animation: logoGlow 2s infinite;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                filter: drop-shadow(0 0 5px var(--cyber-neon)) brightness(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 15px var(--cyber-neon)) brightness(1.3);
+                transform: scale(1.15) rotate(-8deg);
+            }
+            100% {
+                filter: drop-shadow(0 0 5px var(--cyber-neon)) brightness(1);
+            }
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .timeline-container {
+            perspective: 1000px;
+            padding: 2rem;
+            flex: 1;
+            background: transparent;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem; /* Add space before footer */
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            transform: rotateX(5deg);
+            animation: timelineFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes timelineFloat {
+            0%, 100% { transform: rotateX(5deg) translateY(0px); }
+            50% { transform: rotateX(5deg) translateY(-15px); }
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--cyber-neon);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            box-shadow: 0 0 20px var(--cyber-neon);
+            animation: lineGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes lineGlow {
+            0%, 100% { box-shadow: 0 0 20px var(--cyber-neon); }
+            50% { box-shadow: 0 0 40px var(--cyber-neon); }
+        }
+
+        .timeline-item {
+            padding: 5px 30px;
+            position: relative;
+            width: 50%;
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            animation: itemFloat 6s ease-in-out infinite;
+            animation-delay: calc(var(--item-index) * 0.2s);
+            margin-bottom: 20px;
+        }
+
+        @keyframes itemFloat {
+            0%, 100% { transform: translateZ(20px) translateY(0); }
+            50% { transform: translateZ(50px) translateY(-10px); }
+        }
+
+        .timeline-item:hover {
+            transform: translateZ(100px) scale(1.1);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            transform-origin: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            transform-origin: left;
+        }
+
+        .timeline-content {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--cyber-neon);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: contentGlow 3s ease-in-out infinite;
+            animation-delay: calc(var(--item-index) * 0.3s);
+            backdrop-filter: blur(5px);
+            max-width: 450px;
+            margin: 0 auto;
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.3);
+            z-index: 2;
+        }
+
+        @keyframes contentGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+                border-color: var(--cyber-neon);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(0, 255, 0, 0.4);
+                border-color: #fff;
+            }
+        }
+
+        .timeline-date {
+            color: var(--cyber-neon);
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            text-shadow: 0 0 8px var(--cyber-neon);
+            animation: textPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes textPulse {
+            0%, 100% { text-shadow: 0 0 10px var(--cyber-neon); }
+            50% { text-shadow: 0 0 20px var(--cyber-neon), 0 0 30px var(--cyber-neon); }
+        }
+
+        .timeline-title {
+            color: #fff;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-description {
+            color: #ccc;
+            font-size: 0.95em;
+            line-height: 1.5;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            border: 1px solid var(--cyber-neon);
+            box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+            transition: all 0.3s ease;
+            animation: imageGlow 4s ease-in-out infinite;
+            animation-delay: calc(var(--item-index) * 0.4s);
+        }
+
+        @keyframes imageGlow {
+            0%, 100% { 
+                filter: brightness(1) contrast(1);
+                transform: scale(1);
+            }
+            50% { 
+                filter: brightness(1.2) contrast(1.1);
+                transform: scale(1.02);
+            }
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: var(--cyber-neon);
+            border: 4px solid #000;
+            top: 25%;
+            transform: translateY(-50%) translateX(50%);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 10px var(--cyber-neon);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -12.5px;
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12.5px;
+            transform: translateY(-50%);
+        }
+
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .event-modal-content {
+            position: relative;
+            background: #1a1a1a;
+            margin: 40px auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 800px;
+            border: 2px solid var(--cyber-neon);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+            margin-bottom: 200px;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: var(--cyber-neon);
+            font-size: 2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .event-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .event-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--cyber-neon);
+        }
+
+        .event-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .event-tag {
+            background: rgba(0, 255, 0, 0.1);
+            color: var(--cyber-neon);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9em;
+            border: 1px solid var(--cyber-neon);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 20px;
+                margin-bottom: 25px;
+                left: 0 !important;
+            }
+
+            .timeline-item::after {
+                top: 25%;
+                transform: translateY(-50%);
+                left: 18.5px !important;
+                right: auto;
+            }
+
+            .timeline-content {
+                padding: 12px;
+                max-width: 100%;
+            }
+
+            .timeline-image {
+                height: 130px;
+            }
+
+            .timeline-container {
+                margin-bottom: 3rem; /* Increase space before footer on mobile */
+            }
+        }
+
+        .cyber-footer {
+            position: relative;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--cyber-neon);
+            padding: 1rem 0;
+            box-shadow: 0 -2px 20px rgba(0, 255, 140, 0.15);
+            margin-top: auto; /* Push footer to bottom */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="static/images/moctf-logo.png" alt="MOCSCTF Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="events.html" class="nav-link">活動</a>
+                <a href="mocsctfevents.html" class="nav-link active">MOCSCTF系列活動</a>
+                <a href="about.html" class="nav-link">關於我們</a>
+                <a href="joinus.html" class="nav-link">加入我們</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="timeline-container">
+        <div class="timeline" id="timeline">
+            <!-- Timeline items will be dynamically added here -->
+        </div>
+    </div>
+
+    <div class="event-modal" id="eventModal">
+        <div class="event-modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="eventModalContent"></div>
+        </div>
+    </div>
+
+    <footer class="cyber-footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/MOCSCTF" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://ctftime.org/team/120747" target="_blank" class="social-link">
+                    <i class="fas fa-flag"></i>
+                    <span>CTFTime</span>
+                </a>
+                <a href="https://www.facebook.com/MOCSCTF" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <p class="text-center mt-3">&copy; <span id="currentYear"></span> MOCSCTF. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="static/js/matrix.js"></script>
+    <script src="static/js/events.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeline = document.getElementById('timeline');
+            const modal = document.getElementById('eventModal');
+            const modalContent = document.getElementById('eventModalContent');
+            const closeModal = document.querySelector('.close-modal');
+
+            // Filter events that contain "菜鳥黑客松" and "圓滿結束"
+            const filteredEvents = events.filter(event => 
+                event.title.includes('菜鳥黑客松') && event.title.includes('圓滿結束')
+            );
+
+            // Sort events by date in descending order
+            filteredEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            // Create timeline items
+            filteredEvents.forEach((event, index) => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.style.setProperty('--item-index', index);
+                
+                // Get the first image if available
+                const firstImage = event.images && event.images.length > 0 ? event.images[0] : '';
+                
+                timelineItem.innerHTML = `
+                    <div class="timeline-content">
+                        ${firstImage ? `<img src="${firstImage}" alt="${event.title}" class="timeline-image">` : ''}
+                        <div class="timeline-date">${event.date}</div>
+                        <div class="timeline-title">${event.title}</div>
+                        <div class="timeline-description">${event.shortDescription}</div>
+                    </div>
+                `;
+
+                timelineItem.addEventListener('click', () => {
+                    // Get the full description
+                    let fullDescription = event.fullDescription();
+                    
+                    // Create a temporary div to manipulate the HTML
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = fullDescription;
+                    
+                    // Set the event title in h2 tag
+                    const h2Tag = tempDiv.querySelector('h2');
+                    if (h2Tag) {
+                        h2Tag.textContent = event.title;
+                    }
+                    
+                    // If there are images and a gallery placeholder exists, replace it with the image gallery
+                    if (event.images && event.images.length > 0) {
+                        // Find the gallery placeholder and replace it with images
+                        const galleryPlaceholder = tempDiv.querySelector('.event-gallery');
+                        if (galleryPlaceholder) {
+                            galleryPlaceholder.innerHTML = event.images.map((img, index) => {
+                                const eventData = encodeURIComponent(JSON.stringify(event));
+                                return `<img src="${img}" 
+                                    alt="${event.title}" 
+                                    onclick="openFullImage('${img}', JSON.parse(decodeURIComponent('${eventData}')))"
+                                    style="cursor: pointer;">`;
+                            }).join('');
+                        }
+                    }
+                    
+                    // Add modified description to modal
+                    modalContent.innerHTML = tempDiv.innerHTML;
+                    modal.style.display = 'block';
+                    
+                    // Scroll to top of modal
+                    modal.scrollTop = 0;
+                    
+                    // Prevent body scrolling when modal is open
+                    document.body.style.overflow = 'hidden';
+                });
+
+                // Close modal when clicking the close button
+                closeModal.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                });
+
+                // Close modal when clicking outside
+                window.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                timeline.appendChild(timelineItem);
+            });
+
+            // Add parallax effect to timeline items
+            document.addEventListener('mousemove', (e) => {
+                const items = document.querySelectorAll('.timeline-item');
+                const mouseX = e.clientX / window.innerWidth - 0.5;
+                const mouseY = e.clientY / window.innerHeight - 0.5;
+
+                items.forEach((item, index) => {
+                    const depth = 1 + index * 0.1;
+                    const moveX = mouseX * 50 * depth;
+                    const moveY = mouseY * 30 * depth;
+                    item.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+                });
+            });
+
+            // Add function to open full-size image
+            window.openFullImage = function(imgSrc, event) {
+                const currentImages = event ? event.images : 
+                    Array.from(document.querySelectorAll('.event-gallery img')).map(img => img.src);
+                let currentIndex = currentImages.indexOf(imgSrc);
+
+                const fullImageModal = document.createElement('div');
+                fullImageModal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                `;
+                
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.style.cssText = `
+                    max-width: 80%;
+                    max-height: 80vh;
+                    object-fit: contain;
+                    border: 2px solid var(--cyber-neon);
+                    box-shadow: 0 0 20px var(--cyber-neon);
+                `;
+
+                const prevButton = document.createElement('button');
+                prevButton.innerHTML = '&#10094;';
+                prevButton.style.cssText = `
+                    position: fixed;
+                    left: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: var(--cyber-neon);
+                    font-size: 3em;
+                    cursor: pointer;
+                    padding: 20px;
+                    z-index: 2001;
+                    text-shadow: 0 0 10px var(--cyber-neon);
+                    transition: all 0.3s ease;
+                `;
+
+                const nextButton = document.createElement('button');
+                nextButton.innerHTML = '&#10095;';
+                nextButton.style.cssText = `
+                    position: fixed;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: var(--cyber-neon);
+                    font-size: 3em;
+                    cursor: pointer;
+                    padding: 20px;
+                    z-index: 2001;
+                    text-shadow: 0 0 10px var(--cyber-neon);
+                    transition: all 0.3s ease;
+                `;
+
+                const closeButton = document.createElement('button');
+                closeButton.innerHTML = '×';
+                closeButton.style.cssText = `
+                    position: fixed;
+                    right: 20px;
+                    top: 20px;
+                    background: none;
+                    border: none;
+                    color: var(--cyber-neon);
+                    font-size: 3em;
+                    cursor: pointer;
+                    z-index: 2001;
+                    text-shadow: 0 0 10px var(--cyber-neon);
+                    transition: all 0.3s ease;
+                `;
+
+                const imageCounter = document.createElement('div');
+                imageCounter.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: var(--cyber-neon);
+                    font-size: 1.2em;
+                    text-shadow: 0 0 10px var(--cyber-neon);
+                    z-index: 2001;
+                `;
+
+                function updateImageCounter() {
+                    imageCounter.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+                }
+
+                function showImage(index) {
+                    currentIndex = (index + currentImages.length) % currentImages.length;
+                    img.src = currentImages[currentIndex];
+                    updateImageCounter();
+                }
+
+                function handleKeyPress(e) {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            e.preventDefault();
+                            showImage(currentIndex - 1);
+                            break;
+                        case 'ArrowRight':
+                            e.preventDefault();
+                            showImage(currentIndex + 1);
+                            break;
+                        case 'Escape':
+                            e.preventDefault();
+                            document.body.removeChild(fullImageModal);
+                            document.removeEventListener('keydown', handleKeyPress);
+                            break;
+                    }
+                }
+
+                // Initialize the counter
+                updateImageCounter();
+
+                prevButton.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showImage(currentIndex - 1);
+                };
+
+                nextButton.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showImage(currentIndex + 1);
+                };
+
+                closeButton.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.body.removeChild(fullImageModal);
+                    document.removeEventListener('keydown', handleKeyPress);
+                };
+
+                document.addEventListener('keydown', handleKeyPress);
+
+                // Add buttons first
+                fullImageModal.appendChild(img);
+                fullImageModal.appendChild(prevButton);
+                fullImageModal.appendChild(nextButton);
+                fullImageModal.appendChild(closeButton);
+                fullImageModal.appendChild(imageCounter);
+
+                // Add hover effects
+                [prevButton, nextButton, closeButton].forEach(button => {
+                    button.onmouseover = () => {
+                        button.style.transform = button === prevButton ? 'translateY(-50%) scale(1.2)' :
+                            button === nextButton ? 'translateY(-50%) scale(1.2)' : 'scale(1.2)';
+                        button.style.textShadow = '0 0 20px var(--cyber-neon)';
+                    };
+                    button.onmouseout = () => {
+                        button.style.transform = button === prevButton ? 'translateY(-50%)' :
+                            button === nextButton ? 'translateY(-50%)' : 'scale(1)';
+                        button.style.textShadow = '0 0 10px var(--cyber-neon)';
+                    };
+                });
+
+                // Add modal to body
+                document.body.appendChild(fullImageModal);
+
+                // Set up click events
+                fullImageModal.onclick = function(e) {
+                    if (e.target === fullImageModal) {
+                        document.body.removeChild(fullImageModal);
+                        document.removeEventListener('keydown', handleKeyPress);
+                    }
+                };
+
+                img.onclick = (e) => e.stopPropagation();
+            };
+        });
+    </script>
+</body>
+</html> 

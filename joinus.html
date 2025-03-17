@@ -168,6 +168,18 @@
                 top: 0;
             }
 
+            /* Hide footer when nav menu is active */
+            .nav-links.active ~ footer,
+            .nav-links.active ~ main footer,
+            .nav-links.active ~ .cyber-footer,
+            .nav-links.active ~ main .cyber-footer,
+            .nav-links.active + .cyber-footer,
+            .nav-links.active + main .cyber-footer {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+            }
+
             .nav-link {
                 font-size: 1.2rem;
                 width: 100%;
@@ -379,6 +391,12 @@
         function toggleMenu() {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+            const footer = document.querySelector('.cyber-footer');
+            if (navLinks.classList.contains('active')) {
+                footer.style.display = 'none';
+            } else {
+                footer.style.display = '';
+            }
         }
 
         hamburger.addEventListener('click', toggleMenu);

@@ -12,7 +12,7 @@
         .navbar-brand img {
             height: 40px;
             width: auto;
-            margin-right: 1rem;
+            margin-right: 0.5rem;
             transition: all 0.5s ease;
             transform-origin: center;
         }
@@ -61,14 +61,6 @@
             align-items: center;
             text-decoration: none;
             z-index: 1001;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-            margin-right: 0.5rem;
-            transition: all 0.5s ease;
-            transform-origin: center;
         }
 
         .current-page {
@@ -174,6 +166,18 @@
 
             .nav-links.active {
                 top: 0;
+            }
+
+            /* Hide footer when nav menu is active */
+            .nav-links.active ~ footer,
+            .nav-links.active ~ main footer,
+            .nav-links.active ~ .cyber-footer,
+            .nav-links.active ~ main .cyber-footer,
+            .nav-links.active + .cyber-footer,
+            .nav-links.active + main .cyber-footer {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
             }
 
             .nav-link {
@@ -344,8 +348,8 @@
         <div class="container">
             <a href="index.html" class="navbar-brand">
                 <img src="static/images/moctf-logo.png" alt="MOCSCTF Logo">
-                <span class="current-page">關於我們</span>
             </a>
+            <span class="current-page">關於我們</span>
             <button class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -461,6 +465,12 @@
             const navLinks = document.querySelector('.nav-links');
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+            const footer = document.querySelector('.cyber-footer');
+            if (navLinks.classList.contains('active')) {
+                footer.style.display = 'none';
+            } else {
+                footer.style.display = '';
+            }
         }
 
         // Close mobile menu when clicking a link

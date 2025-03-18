@@ -317,9 +317,12 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             overflow: auto;
-            display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
         }
 
         .modal-content {
@@ -507,7 +510,7 @@
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
-            modal.style.display = "flex";
+            modal.classList.add('show');
             modalImg.src = imgSrc;
 
             // Close modal when clicking outside the image
@@ -526,7 +529,8 @@
         }
 
         function closeModal() {
-            document.getElementById('imageModal').style.display = "none";
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('show');
         }
     </script>
 </body>

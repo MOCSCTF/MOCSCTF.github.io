@@ -310,35 +310,45 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 2000;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.9);
             overflow: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
-            margin: auto;
-            display: block;
             max-width: 90%;
             max-height: 90vh;
-            margin-top: 2%;
+            object-fit: contain;
+            border: 2px solid var(--cyber-neon);
+            box-shadow: 0 0 20px var(--cyber-neon);
         }
 
         .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
             color: var(--cyber-neon);
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
+            background: none;
+            border: none;
+            text-shadow: 0 0 10px var(--cyber-neon);
+            transition: all 0.3s ease;
+            z-index: 2001;
         }
 
         .modal-close:hover {
             color: #fff;
+            transform: scale(1.1);
+            text-shadow: 0 0 20px var(--cyber-neon);
         }
     </style>
 </head>
@@ -451,7 +461,7 @@
     </footer>
 
     <div id="imageModal" class="modal">
-        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
         <img class="modal-content" id="modalImage">
     </div>
 
@@ -497,8 +507,22 @@
         function openModal(imgSrc) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
-            modal.style.display = "block";
+            modal.style.display = "flex";
             modalImg.src = imgSrc;
+
+            // Close modal when clicking outside the image
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
         }
 
         function closeModal() {

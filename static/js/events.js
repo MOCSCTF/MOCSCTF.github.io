@@ -440,5 +440,51 @@ const events = [
             "static/images/events/mocsctf-2023-16.jpg",
             "static/images/events/mocsctf-2023-17.jpg"
         ]
+    },
+    {
+        id: "cli-ai-assist-2025",
+        title: "MOCSCTF 嘅第一個 AI 工具 -- cli-AI-assist 🛠🤖",
+        shortDescription: "MOCSCTF 推出首個 AI 工具 cli-AI-assist，旨在降低 CLI 工具的學習成本，提供可靠的 Command Line 建議，並支持不同 Model 的 Benchmark 測試。",
+        fullDescription: function() {
+            return `
+            <h2></h2>
+            <div class="event-meta">
+                <p class="event-date">2025-04-24</p>
+                <p class="event-location"><i class="fas fa-map-marker-alt"></i> GitHub</p>
+            </div>
+            
+            <div class="event-content">
+                <h3>工具介紹</h3>
+                <p>MOCSCTF 嘅第一個 AI 工具 -- cli-AI-assist 🛠🤖，玩咗咁多年嘅 CTF，最頭痛嘅可能就係要記住各式各樣嘅 CLI tools 😵‍💫。呢個 Project 就係因應 AI 技術嘅成熟而誕生嘅 🎉，目標係降低 CLI 嘅學習成本，將寶貴嘅時間放喺其他更加有意義嘅地方 ⏳✨。<br><br>呢個 Project 可以利用 AI 解讀文檔 📄，提供可靠嘅 Command Line 建議 📋，亦支持運行不同 Model 做 Benchmark 🏋‍♂📊（目前僅支持單一 AI provider）。原本呢個 Project 只作內部使用，後來發現效果唔錯，索性打包成工具方便大家 🤩。希望呢個 Project 真係幫到大家 🙌，同時非常歡迎大家提出意見 🗣，或者直接去 GitHub 提交 Pull Request 🚀！</p>
+
+                <div class="event-gallery"></div>
+
+                <h3>推薦 Model</h3>
+                <ul>
+                    <li>平衡性價比: openai/gpt-4.1-mini 🪙 – 成本低 ($0.00101)、速度快 (6.81s)，可靠性同質量俱佳 🌟</li>
+                    <li>質量優先: google/gemini-2.5-pro-preview 🏆 – 代碼質量高，解釋詳細，適合追求精確用戶 🎯</li>
+                    <li>成本優先: google/gemini-2.0-flash 💰 – 成本最低 ($0.000369)，適合追求低開支場景 🤑</li>
+                </ul>
+
+                <h3>溫馨提示</h3>
+                <p>AI 有機會存儲用戶提交嘅資料 📂，請切勿傳送任何個人資料或密碼 🔒</p>
+
+                <h3>相關連結</h3>
+                <p>詳細資料可以參考： <a href="https://github.com/MOCSCTF/cli-AI-assist" target="_blank" style="color: var(--cyber-neon);">https://github.com/MOCSCTF/cli-AI-assist</a></p>
+            </div>
+
+            <div class="event-tags">
+                <span class="event-tag">MOCSCTF自研工具</span>
+                <span class="event-tag">AI</span>
+                <span class="event-tag">CLI</span>
+                <span class="event-tag">OpenAI</span>
+                <span class="event-tag">Gemini</span>
+            </div>
+        `},
+        date: "2025-04-24",
+        location: "GitHub",
+        images: [
+            "static/images/events/cli-ai-assist-2025-1.jpg"
+        ]
     }
 ]; 

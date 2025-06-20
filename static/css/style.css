@@ -350,10 +350,6 @@ canvas#matrix {
     margin: 2rem 0;
 }
 
-#poster {
-    grid-template-columns: inherit !important;
-}
-
 .event-gallery img {
     width: 100%;
     height: 200px;

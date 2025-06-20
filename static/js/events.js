@@ -514,7 +514,7 @@ const events = [
                 1. 若有意參加澳門中學生組，請聯絡業餘進修中心。
                 <br><br>
                 2. 澳門大專院校或有興趣人士，需以一人隊伍參加公開組。 
-                <br><br><br><br>
+                <br><br>
                 </p>
 
                 <h3>🏆公開組奬品包括 </h3>
@@ -549,7 +549,7 @@ const events = [
                 </p>
                 </div>
 
-                <div id="poster" class="event-gallery"></div>
+                <div class="event-gallery"></div>
 
             <div class="event-tags">
                 <span class="event-tag">MOCSCTF2025</span>

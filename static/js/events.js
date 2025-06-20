@@ -486,5 +486,83 @@ const events = [
         images: [
             "static/images/events/cli-ai-assist-2025-1.jpg"
         ]
+    },
+    {
+        id: "mocsctf-2025",
+        title: "菜鳥黑客松奪旗賽2025(MOCSCTF2025) 火熱報名中⛳️",
+        shortDescription: "MOCSCTF 推出首個 AI 工具 cli-AI-assist，旨在降低 CLI 工具的學習成本，提供可靠的 Command Line 建議，並支持不同 Model 的 Benchmark 測試。",
+        fullDescription: function() {
+            return `
+            <h2></h2>
+            <div class="event-meta">
+                <p class="event-date">2025-07-13</p>
+                <p class="event-location"><i class="fas fa-map-marker-alt"></i>業餘進修中心</p>
+            </div>
+            
+            <div class="event-content">
+                <h3>今個暑假好充實！你報名參加未？</h3>
+                <p>澳門網絡安全盛事“︁菜鳥黑客松奪旗賽2025”︁正式開跑，為推廣網絡安全競賽知識，推動本地網絡安全發展及培育本地網絡安全人才，今年已邁向第五個年頭，見證過各方高手在比賽平台上大展身手，你們準備好要在即將到來的網絡安全盛典中一決高下嗎？
+                <br><br>
+                比賽日期：7月13日（日）
+                <br><br>
+                比賽時間：9:30AM - 5:30PM
+                <br><br>
+                比賽地點：澳門中學組（線下賽）、公開組（線上賽）
+                <br><br>
+                參賽形式：
+                <br><br>
+                1. 若有意參加澳門中學生組，請聯絡業餘進修中心。
+                <br><br>
+                2. 澳門大專院校或有興趣人士，需以一人隊伍參加公開組。 
+                <br><br><br><br>
+                </p>
+
+                <h3>🏆公開組奬品包括 </h3>
+                <p>
+                冠軍: Mac Mini 
+                <br><br>
+                亞軍: Logitech Astro A50X lightspeed
+                <br><br>
+                季軍: Apple Watch SE
+                <br><br>
+                </p>
+                <div class="event-gallery"></div>
+
+
+                <h3>特別鳴謝</h3>
+                <p>合辦單位：業餘進修中心
+                <br><br>
+                贊助及技術支援單位：Paloalto Networks、博維資訊系統有限公司、天網資訊科技(澳門)有限公司、阿里雲(Alibaba Cloud)、VastCom Technology Limited、Eterminds Limited、Alfa Cloud(HK)Ltd、澳門資訊科技行業工會、Orange Business
+                <br><br>
+                技術支援單位：SUCTF
+                <br><br>
+                星級講師：Harry Sit @ MOCSCTF、Cindy Wong @ MOCSCTF
+                <br><br>
+                特約講師：Ken Chu @ DarkLab、Kelvin Tam @ DarkLab、Jack Lau @ Orange Business、Ivan Mai @ MITIU、Jason Chan @ CSCEC
+                </p>
+
+                <h3>👉報名連結</h3>
+                <p>詳細資料可以參考： <a href="https://2025.mocsctf.com" target="_blank" style="color: var(--cyber-neon);">https://2025.mocsctf.com</a></p>
+            </div>
+
+            <div class="event-tags">
+                <span class="event-tag">MOCSCTF2025</span>
+                <span class="event-tag">澳門業餘進修中心</span>
+                <span class="event-tag">PaloAlto</span>
+                <span class="event-tag">博維資訊系統有限公司</span>
+                <span class="event-tag">天網資訊科技澳門有限公司</span>
+                <span class="event-tag">AlibabaCloud</span>
+                <span class="event-tag">Vastcom</span>
+                <span class="event-tag">Eterminds</span>
+                <span class="event-tag">AlfaCloud</span>
+                <span class="event-tag">澳門資訊科技行業工會</span>
+                <span class="event-tag">Orange Business</span>
+            </div>
+        `},
+        date: "2025-07-13",
+        location: "業餘進修中心",
+        images: [
+            "static/images/events/mocsctf-2025.JPG"
+        ]
     }
 ]; 

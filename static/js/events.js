@@ -490,7 +490,7 @@ const events = [
     {
         id: "mocsctf-2025",
         title: "菜鳥黑客松奪旗賽2025(MOCSCTF2025) 火熱報名中⛳️",
-        shortDescription: "MOCSCTF 推出首個 AI 工具 cli-AI-assist，旨在降低 CLI 工具的學習成本，提供可靠的 Command Line 建議，並支持不同 Model 的 Benchmark 測試。",
+        shortDescription: "澳門網絡安全盛事'菜鳥黑客松奪旗賽2025'正式開跑，為推廣網絡安全競賽知識，推動本地網絡安全發展及培育本地網絡安全人才，今年已邁向第五個年頭，見證過各方高手在比賽平台上大展身手，你們準備好要在即將到來的網絡安全盛典中一決高下嗎？ ",
         fullDescription: function() {
             return `
             <h2></h2>
@@ -503,7 +503,7 @@ const events = [
                 <h3>今個暑假好充實！你報名參加未？</h3>
                 <p>澳門網絡安全盛事“︁菜鳥黑客松奪旗賽2025”︁正式開跑，為推廣網絡安全競賽知識，推動本地網絡安全發展及培育本地網絡安全人才，今年已邁向第五個年頭，見證過各方高手在比賽平台上大展身手，你們準備好要在即將到來的網絡安全盛典中一決高下嗎？
                 <br><br>
-                比賽日期：7月13日（日）
+                比賽日期：2025年7月13日（日）
                 <br><br>
                 比賽時間：9:30AM - 5:30PM
                 <br><br>
@@ -526,7 +526,8 @@ const events = [
                 季軍: Apple Watch SE
                 <br><br>
                 </p>
-                <div class="event-gallery"></div>
+                
+                <div class="event-gallery-poster"></div>
 
 
                 <h3>特別鳴謝</h3>
@@ -542,8 +543,13 @@ const events = [
                 </p>
 
                 <h3>👉報名連結</h3>
-                <p>詳細資料可以參考： <a href="https://2025.mocsctf.com" target="_blank" style="color: var(--cyber-neon);">https://2025.mocsctf.com</a></p>
-            </div>
+                <p>公開組報名： <a href="https://2025.mocsctf.com" target="_blank" style="color: var(--cyber-neon);">https://2025.mocsctf.com</a>
+                <br>
+                中學生組報名：
+                <a href="https://www.caep.edu.mo/latestNoticeDetail/79" target="_blank" style="color: var(--cyber-neon);">https://www.caep.edu.mo/latestNoticeDetail/79</a>
+                <br>
+                </p>
+                </div>
 
             <div class="event-tags">
                 <span class="event-tag">MOCSCTF2025</span>

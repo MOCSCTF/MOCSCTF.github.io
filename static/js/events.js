@@ -526,10 +526,6 @@ const events = [
                 季軍: Apple Watch SE
                 <br><br>
                 </p>
-                
-                <div class="poster">
-                <div class="event-gallery"></div>
-                </div>
 
                 <h3>特別鳴謝</h3>
                 <p>合辦單位：業餘進修中心
@@ -552,6 +548,8 @@ const events = [
                 <br>
                 </p>
                 </div>
+
+                <div class="event-gallery" style='grid-template-columns: inherit;'></div>
 
             <div class="event-tags">
                 <span class="event-tag">MOCSCTF2025</span>

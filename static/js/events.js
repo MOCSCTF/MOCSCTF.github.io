@@ -527,7 +527,7 @@ const events = [
                 <br><br>
                 </p>
                 
-                <div class="event-gallery-poster"></div>
+                <div class="event-gallery poster"></div>
 
 
                 <h3>特別鳴謝</h3>

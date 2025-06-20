@@ -350,7 +350,7 @@ canvas#matrix {
     margin: 2rem 0;
 }
 
-.event-gallery.poster {
+.poster .event-gallery {
     grid-template-columns: inherit !important;
 }
 

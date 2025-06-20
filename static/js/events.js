@@ -527,7 +527,12 @@ const events = [
                 <br><br>
                 </p>
                 
-                <div class="event-gallery poster"></div>
+                <div class="event-gallery poster">
+                <img src="static/images/events/mocsctf-2025.JPG" 
+                                alt="MOCSCTF2025" 
+                                onclick="openFullImage('static/images/events/mocsctf-2025.JPG', JSON.parse(decodeURIComponent('2025-07-13')))"
+                                style="cursor: pointer;">
+                </div>
 
 
                 <h3>特別鳴謝</h3>

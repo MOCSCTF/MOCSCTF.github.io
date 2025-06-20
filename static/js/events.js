@@ -549,7 +549,7 @@ const events = [
                 </p>
                 </div>
 
-                <div class="event-gallery" style='grid-template-columns: inherit;'></div>
+                <div id="poster" class="event-gallery"></div>
 
             <div class="event-tags">
                 <span class="event-tag">MOCSCTF2025</span>

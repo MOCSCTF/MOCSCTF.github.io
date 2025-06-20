@@ -547,9 +547,12 @@ const events = [
                 <a href="https://www.caep.edu.mo/latestNoticeDetail/79" target="_blank" style="color: var(--cyber-neon);">https://www.caep.edu.mo/latestNoticeDetail/79</a>
                 <br>
                 </p>
+                
+                <div class="event-gallery"></div>
+
                 </div>
 
-                <div class="event-gallery"></div>
+                
 
             <div class="event-tags">
                 <span class="event-tag">MOCSCTF2025</span>

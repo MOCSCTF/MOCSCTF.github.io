@@ -537,7 +537,7 @@ const events = [
                 星級講師：Harry Sit @ MOCSCTF、Cindy Wong @ MOCSCTF
                 <br><br>
                 特約講師：Ken Chu @ DarkLab、Kelvin Tam @ DarkLab
-                <br>Jack Lau @ Orange Business、Ivan Mai @ MITIU、Jason Chan @ CSCEC
+                <br>Jack Lau @ Orange Business、Ivan Mai @ MITIU、Jason Chan @ CSCEC、Raymond Tsang @ Alibaba
                 </p>
 
                 <h3>👉報名連結</h3>

@@ -568,10 +568,59 @@ const events = [
                 <span class="event-tag">Orange Business</span>
             </div>
         `},
-        date: "2025-07-13",
+        date: "2025-07-10",
         location: "業餘進修中心",
         images: [
             "static/images/events/mocsctf-2025.JPG"
+        ]
+    },
+    {
+        id: "mocsctf-2025-finish",
+        title: "MOCSCTF菜鳥黑客松 2025 圓滿結束",
+        shortDescription: "菜鳥黑客松2025比賽及頒獎典禮圓滿舉行，感謝所有嘉賓、參賽者及團隊成員的支持。",
+        fullDescription: function() {
+            return `
+            <h2></h2>
+            <div class="event-meta">
+                <p class="event-date">2025-07-13</p>
+                <p class="event-location"><i class="fas fa-map-marker-alt"></i> 業餘進修中心</p>
+            </div>
+            <div class="event-content">
+                <h3>活動回顧</h3>
+                <p>由澳門網絡安全暨奪旗競賽協會與業餘進修中心合辦之“︁菜鳥黑客松2025”︁奪旗賽及頒獎典禮7月13日於業餘進修中心禮堂順利舉行👏<br>
+多謝各位尊敬的來賓抽空出席🫡<br>
+恭喜各位中學生組及公開組的得獎者🥳<br>
+謝謝MOCSCTF團隊成員🥰<br><br>
+附上今日的媒體採訪片段節錄及相關新聞報導：<br>
+TDM | 網絡安全競賽冀培養網安人才<br>
+<a href="https://www.tdm.com.mo/zh-hant/sharelink/news/1107468" target="_blank" style="color: var(--cyber-neon);">https://www.tdm.com.mo/zh-hant/sharelink/news/1107468</a><br>
+<br>網安比賽逾2百人參與 冀促人才發展<br>
+<a href="https://www.tdm.com.mo/zh-hant/news-detail/1107453" target="_blank" style="color: var(--cyber-neon);">https://www.tdm.com.mo/zh-hant/news-detail/1107453</a><br>
+</p>
+            </div>
+            <div class="event-gallery"></div>
+            <div class="event-tags">
+                <span class="event-tag">MOCSCTF</span>
+                <span class="event-tag">澳門業餘進修中心</span>
+                <span class="event-tag">PaloAlto</span>
+                <span class="event-tag">博維資訊系統有限公司</span>
+                <span class="event-tag">天網資訊科技澳門有限公司</span>
+                <span class="event-tag">AlibabaCloud</span>
+                <span class="event-tag">Vastcom</span>
+                <span class="event-tag">Eterminds</span>
+                <span class="event-tag">AlfaCloud</span>
+                <span class="event-tag">澳門資訊科技行業工會</span>
+            </div>
+        `},
+        date: "2025-07-13",
+        location: "業餘進修中心",
+        images: [
+            "static/images/events/MOCSCTF-2025-1.JPG",
+            "static/images/events/MOCSCTF-2025-2.JPG",
+            "static/images/events/MOCSCTF-2025-3.JPG",
+            "static/images/events/MOCSCTF-2025-4.JPG",
+            "static/images/events/MOCSCTF-2025-5.JPG",
+            "static/images/events/MOCSCTF-2025-6.JPG"
         ]
     }
 ]; 

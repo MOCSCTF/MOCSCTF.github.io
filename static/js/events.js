@@ -631,7 +631,7 @@ TDM | 網絡安全競賽冀培養網安人才<br>
             return `
             <h2></h2>
             <div class="event-meta">
-                <p class="event-date">2025-07-13</p>
+                <p class="event-date">2025-09-20</p>
                 <p class="event-location"><i class="fas fa-map-marker-alt"></i> 業餘進修中心</p>
             </div>
             <div class="event-content">
@@ -672,7 +672,7 @@ TDM | 網絡安全競賽冀培養網安人才<br>
                 <span class="event-tag">AlfaCloud</span>
             </div>
         `},
-        date: "2025-09-23",
+        date: "2025-09-20",
         location: "業餘進修中心",
         images: [
             "static/images/events/mocsctf-2025-training-course.JPG"

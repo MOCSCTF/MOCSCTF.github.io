@@ -622,5 +622,60 @@ TDM | 網絡安全競賽冀培養網安人才<br>
             "static/images/events/MOCSCTF-2025-5.JPG",
             "static/images/events/MOCSCTF-2025-6.JPG"
         ]
+    },
+    {
+        id: "mocsctf-2025-training-course",
+        title: "MOCSCTF菜鳥黑客松2025之解題分享會及公開組頒獎禮 暨 企業網絡安全培訓和實戰",
+        shortDescription: "開學季就是要來「捲」自己！🔥 我們聽到了～9/20 當天，直接為你解鎖兩大超強活動，助你技能點滿、高效升級！準備好你的行事曆了嗎？",
+        fullDescription: function() {
+            return `
+            <h2></h2>
+            <div class="event-meta">
+                <p class="event-date">2025-07-13</p>
+                <p class="event-location"><i class="fas fa-map-marker-alt"></i> 業餘進修中心</p>
+            </div>
+            <div class="event-content">
+                <h3>活動內容</h3>
+                <p>開學季就是要來「捲」自己！🔥 我們聽到了～9/20 當天，直接為你解鎖兩大超強活動，助你技能點滿、高效升級！準備好你的行事曆了嗎？<br>
+                    1. “菜鳥黑客松2025”奪旗賽之解題分享會及公開組頒獎禮<br>
+                    2. 企業網絡安全培訓和實戰<br><br>
+                    報名成功後，待內部人員確認後才有電郵通知<br>
+                    👉報名表格：<br>
+                    <a href="https://forms.gle/1NhR4DpKmW1ZuUsQA" target="_blank" style="color: var(--cyber-neon);">https://forms.gle/1NhR4DpKmW1ZuUsQA</a><br><br>
+                    👏特別鳴謝：<br>
+                    合辦單位：業餘進修中心<br>
+                    技術支援單位：Alfa Cloud (HK) Ltd<br><br>
+                    📖活動詳情：<br>
+                    1️⃣“菜鳥黑客松2025”奪旗賽之解題分享會及公開組頒獎禮<br>
+                    日期：2025年9月20日<br>
+                    時間：10:30 AM - 12:00 PM<br>
+                    地點：業餘進修中心一樓禮堂<br>
+                    內容：由高手們獨家分享高難度的解題心得<br>
+                    名額：50人<br><br>
+                    2️⃣企業網絡安全培訓和實戰<br>
+                    日期：2025年9月20日<br>
+                    時間：2:00 PM - 5:30 PM<br>
+                    地點：業餘進修中心二樓課室<br>
+                    內容：<br>
+                    - 從理論到實踐<br>
+                    - 模擬重點基礎設備的攻擊場景<br>
+                    - 識別潛在的網路威脅<br>
+                    - 完成培訓證明書<br>
+                    名額：10人<br><br>
+                    *名額有限，在職人士優先<br>
+                    *若報名人數超過名額，會作進一步甄選<br><br>
+            </div>
+            <div class="event-gallery"></div>
+            <div class="event-tags">
+                <span class="event-tag">MOCSCTF</span>
+                <span class="event-tag">澳門業餘進修中心</span>
+                <span class="event-tag">AlfaCloud</span>
+            </div>
+        `},
+        date: "2025-09-23",
+        location: "業餘進修中心",
+        images: [
+            "static/images/events/mocsctf-2025-training-course.JPG"
+        ]
     }
 ]; 

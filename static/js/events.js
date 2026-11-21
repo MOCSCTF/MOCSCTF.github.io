@@ -716,5 +716,54 @@ TDM | 網絡安全競賽冀培養網安人才<br>
             "static/images/events/DDAS.png",
             "static/images/events/DDAS-partner.JPG"
         ]
+    },
+    {
+        id: "mocsctf-2026-finish",
+        title: "菜鳥黑客松網絡安全攻防賽（MOCSCTF2026）圓滿結束",
+        shortDescription: "菜鳥黑客松網絡安全攻防賽（MOCSCTF2026）圓滿舉行，今次賽事規模擴大，橫跨三地（澳門，深圳及新加坡，是一個重要的里程碑。",
+        fullDescription: function() {
+            return `
+            <h2></h2>
+            <div class="event-meta">
+                <p class="event-date">2026-11-08</p>
+                <p class="event-location"><i class="fas fa-map-marker-alt"></i> 業餘進修中心</p>
+            </div>
+            <div class="event-content">
+                <h3>活動回顧</h3>
+                <p>由澳門網絡安全暨奪旗競賽協會與業餘進修中心合辦之第六屆「菜鳥黑客松網絡安全攻防賽（MOCSCTF2026）」決賽及頒獎典禮在11月8日於業餘進修中心禮堂順利舉行👏<br>
+今年有非常重要的新里程碑，學生參賽隊伍由上年的23隊，大幅躍升到今年的50隊，線上線下的參與人數更加超過180人！🥳<br>
+今次賽事規模擴大，橫跨三地（澳門，深圳及新加坡），加上同學們使用AI解題，無論在網絡、系統以及協調上，對我們籌備團隊來說都是一大挑戰。🫡 <br>
+謝謝MOCSCTF籌備團隊成員（來自上屆的參賽者）🥰<br><br>
+附上今日的媒體採訪片段節錄及相關新聞報導：<br>
+TDM | 協會辦競賽推廣網絡安全教育<br>
+<a href="https://www.tdm.com.mo/zh-hant/news-detail/1258857" target="_blank" style="color: var(--cyber-neon);">https://www.tdm.com.mo/zh-hant/sharelink/news/1107468</a><br>
+<br>網安奪旗賽50隊比拼 冀提升學生技術水平<br>
+<a href="https://www.tdm.com.mo/zh-hant/news-detail/1258845" target="_blank" style="color: var(--cyber-neon);">https://www.tdm.com.mo/zh-hant/news-detail/1107453</a><br>
+</p>
+<br>「︁菜鳥黑客松二零二六」︁攻防賽 匯聚各地網安青少年人才<br>
+<a href="https://www.jornalvakio.com/news/view/id/721925" target="_blank" style="color: var(--cyber-neon);">https://www.tdm.com.mo/zh-hant/news-detail/1107453</a><br>
+</p>
+            </div>
+            <div class="event-gallery"></div>
+            <div class="event-tags">
+                <span class="event-tag">MOCSCTF</span>
+                <span class="event-tag">澳門業餘進修中心</span>
+                <span class="event-tag">DDAS</span>
+                <span class="event-tag">深圳職業技術大學</span>
+                <span class="event-tag">澳門資訊科技行業工會</span>
+                <span class="event-tag">Tenable</span>
+                <span class="event-tag">Vastcom</span>
+                <span class="event-tag">Eterminds</span>
+                <span class="event-tag">NearBy</span>
+            </div>
+        `},
+        date: "2026-11-08",
+        location: "業餘進修中心",
+        images: [
+            "static/images/events/MOCSCTF-2026-1.jpg",
+            "static/images/events/MOCSCTF-2026-2.jpg",
+            "static/images/events/MOCSCTF-2026-3.jpg",
+            "static/images/events/MOCSCTF-2026-4.jpg"
+        ]
     }
 ]; 

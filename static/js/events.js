@@ -677,5 +677,44 @@ TDM | 網絡安全競賽冀培養網安人才<br>
         images: [
             "static/images/events/mocsctf-2025-training-course.JPG"
         ]
+    },
+    {
+        id: "mocsctf-partner-with-ddas",
+        title: "MOCSCTF become a partner with Digital Defence Alliance Singapore (DDAS)",
+        shortDescription: "新加坡數位防衛聯盟（Digital Defence Alliance Singapore，簡稱 DDAS）致力於強化新加坡「全面防衛」（Total Defence）策略中的「數位防衛」支柱。",
+        fullDescription: function() {
+            return `
+            <h2></h2>
+            <div class="event-meta">
+                <p class="event-date">2026-08-20</p>
+            </div>
+            <div class="event-content">
+                <h3>合作備忘錄</h3>
+                <p>澳門網絡安全暨奪旗競賽協會與新加坡數位防衛聯盟於2026年8月20日簽署合作備忘錄</p><br>
+                    共同目標：<br>
+                    1. 針對數位領域（包括但不限於人工智慧、網路安全及數位防禦）進行跨國知識與資訊交流<br><br>
+                    2. 澳門與新加坡之間的交流計劃<br><br>
+                    3. 聯合舉辦或共同籌辦活動<br><br>
+                    4. 推廣各自組織的活動<br><br>
+                <p>On 20 August 2026, MOCSCTF signed the MOU with Digital Defence Alliance Singapore (DDAS) </p><br>
+                    The objectives of the MOU are to： <br>
+                    1. Cross Border Exchange of Knowledge and Information related to Digital not limited to AI, Cybersecurity and Digital Defence.<br><br>
+                    2. Exchange Programme between the two countries (Macau and Singapore)<br><br>
+                    3. Joint or Co-organise of Events<br><br>
+                    4. Promotion of respective organisation activities<br><br>
+                    Link: https://www.ddas.sg/partners<br>
+            </div>
+            <div class="event-gallery"></div>
+            <div class="event-tags">
+                <span class="event-tag">MOCSCTF</span>
+                <span class="event-tag">DDAS</span>
+            </div>
+        `},
+        date: "2026-08-20",
+        location: "Online",
+        images: [
+            "static/images/events/DDAS.png",
+            "static/images/events/DDAS-partner.JPG"
+        ]
     }
 ]; 
